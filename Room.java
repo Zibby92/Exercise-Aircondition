@@ -5,54 +5,16 @@ public class Room {
     boolean airConditioningOn;
     MainAirConditioner whichConditioner;
 
-    void belowORAbowDegreesPerMinute(double temperature) {
-        MainAirConditioner mainAirConditioner = new MainAirConditioner();
-        double tempPerMinute = getTemperatureAtTheBeginning();
-        if(temperature> tempPerMinute) {
-            do {
-                tempPerMinute += (room.field() * whichConditioner;
-                Thread.sleep(1000);
-                System.out.printf("Aktualna temperatura: %.02f ", tempPerMinute);
-                System.out.println();
-            } while (tempPerMinute <= temperature);
-        } else {
-            do {
-                tempPerMinute -= (room.field() * POWER);
-                Thread.sleep(1000);
-                System.out.printf("Aktualna temperatura: %.02f ", tempPerMinute);
-                System.out.println();
-            } while (tempPerMinute >= temperature);
-        }
-
-    }
-
-
-
-
-    void getHigherDegrees(int howMany) {
-        this.temperatureAtTheBeginning = temperatureAtTheBeginning + howMany;
-    }
-
-    public Room(int width, int length, double temperatureAtTheBeginning, boolean airConditioningOn) {
+    public Room(int width, int length, double temperatureAtTheBeginning, boolean airConditioningOn, MainAirConditioner whichConditioner) {
         this.width = width;
         this.length = length;
         this.temperatureAtTheBeginning = temperatureAtTheBeginning;
         this.airConditioningOn = airConditioningOn;
+        this.whichConditioner = whichConditioner;
     }
 
-    int field() {
-        return this.length * this.width;
-    }
-
-    public Room(int width, int length) {
-        this.width = width;
-        this.length = length;
-    }
-
-    public Room(int width, int length, double temperatureAtTheBeginning) {
-        this.width = width;
-        this.length = length;
-        this.temperatureAtTheBeginning = temperatureAtTheBeginning;
+    int field () {
+        return this.width * this.length;
     }
 
     public int getWidth() {
@@ -77,5 +39,21 @@ public class Room {
 
     public void setTemperatureAtTheBeginning(double temperatureAtTheBeginning) {
         this.temperatureAtTheBeginning = temperatureAtTheBeginning;
+    }
+
+    public boolean isAirConditioningOn() {
+        return airConditioningOn;
+    }
+
+    public void setAirConditioningOn(boolean airConditioningOn) {
+        this.airConditioningOn = airConditioningOn;
+    }
+
+    public MainAirConditioner getWhichConditioner() {
+        return whichConditioner;
+    }
+
+    public void setWhichConditioner(MainAirConditioner whichConditioner) {
+        this.whichConditioner = whichConditioner;
     }
 }
